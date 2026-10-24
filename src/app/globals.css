@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #090D16;
+  --foreground: #F8FAFC;
+  --primary-blue: #2563EB;
+  --primary-cyan: #00D2FF;
+  --card-bg: #0F172A;
+  --border-color: #1E293B;
+  --primary-accent: #00D2FF;
+  --primary-orange: #2563EB;
+}
+
+.dark {
+  --background: #090D16;
+  --foreground: #F8FAFC;
+  --primary-blue: #2563EB;
+  --primary-cyan: #00D2FF;
+  --card-bg: #0F172A;
+  --border-color: #1E293B;
+  --primary-accent: #00D2FF;
+  --primary-orange: #2563EB;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Glow Accent Utilities */
+.glow-blue {
+  box-shadow: 0 0 25px -5px rgba(37, 99, 235, 0.45);
+}
+
+.glow-blue-sm {
+  box-shadow: 0 0 12px -2px rgba(37, 99, 235, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px -3px rgba(0, 210, 255, 0.4);
+}
+
+.glow-cyan-sm {
+  box-shadow: 0 0 12px -2px rgba(0, 210, 255, 0.3);
+}
+
+.glow-orange {
+  box-shadow: 0 0 25px -5px rgba(37, 99, 235, 0.45);
+}
+
+.glow-orange-sm {
+  box-shadow: 0 0 12px -2px rgba(37, 99, 235, 0.35);
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #60A5FA 0%, #2563EB 50%, #00D2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #38BDF8 0%, #2563EB 50%, #00D2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-orange {
+  background: linear-gradient(135deg, #38BDF8 0%, #2563EB 50%, #00D2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090D16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563EB;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Optimization for PDF & Paper Printing */
+@media print {
+  @page {
+    margin: 12mm 15mm;
+    size: A4 portrait;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide interactive non-printable UI elements */
+  nav,
+  aside,
+  header,
+  footer,
+  .no-print,
+  button:not(.print-include),
+  .sidebar,
+  [data-sidebar],
+  .fixed,
+  .sticky {
+    display: none !important;
+  }
+
+  /* Reset dark backgrounds for clean, high-contrast printing */
+  .bg-\[\#12141F\],
+  .bg-\[\#090A0F\],
+  .bg-\[\#1C1F2E\],
+  .bg-\[\#0E1017\],
+  .bg-\[\#090D16\],
+  .bg-\[\#0F172A\],
+  .bg-surface-800,
+  .bg-surface-900,
+  .bg-surface-950 {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure text is dark and crisp for paper */
+  .text-white,
+  .text-gray-100,
+  .text-gray-200,
+  .text-gray-300 {
+    color: #111827 !important;
+  }
+
+  .text-gray-400,
+  .text-gray-500 {
+    color: #4b5563 !important;
+  }
+
+  /* Table print optimization */
+  table {
+    page-break-inside: auto;
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  th {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+    border: 1px solid #d1d5db !important;
+  }
+
+  td {
+    border: 1px solid #e5e7eb !important;
+    color: #111827 !important;
+  }
+
+  /* Full width container */
+  main,
+  .main-content,
+  #root,
+  body > div {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
